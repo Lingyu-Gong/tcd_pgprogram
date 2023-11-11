@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1699611285">
+  <File Type="ROUTE-PWR" Name="base_filter_wrapper_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="base_filter_wrapper.tcl"/>
+  <File Type="BITSTR-BMM" Name="base_filter_wrapper_bd.bmm"/>
+  <File Type="ROUTE-PWR-SUM" Name="base_filter_wrapper_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="base_filter_wrapper_reports.tcl"/>
+  <File Type="OPT-DCP" Name="base_filter_wrapper_opt.dcp"/>
+  <File Type="OPT-DRC" Name="base_filter_wrapper_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="base_filter_wrapper.hwdef"/>
+  <File Type="PWROPT-DCP" Name="base_filter_wrapper_pwropt.dcp"/>
+  <File Type="PLACE-DCP" Name="base_filter_wrapper_placed.dcp"/>
+  <File Type="PLACE-IO" Name="base_filter_wrapper_io_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="base_filter_wrapper_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="base_filter_wrapper_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="base_filter_wrapper_control_sets_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="base_filter_wrapper_incremental_reuse_pre_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="base_filter_wrapper_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="base_filter_wrapper.bin"/>
+  <File Type="PHYSOPT-DCP" Name="base_filter_wrapper_physopt.dcp"/>
+  <File Type="BITSTR-MSK" Name="base_filter_wrapper.msk"/>
+  <File Type="ROUTE-ERROR-DCP" Name="base_filter_wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="base_filter_wrapper_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="base_filter_wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="base_filter_wrapper_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="base_filter_wrapper_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="base_filter_wrapper_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="base_filter_wrapper_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-MMI" Name="base_filter_wrapper.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="base_filter_wrapper_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="base_filter_wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="base_filter_wrapper_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="base_filter_wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="base_filter_wrapper_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="base_filter_wrapper_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="base_filter_wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="base_filter_wrapper_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-CLK" Name="base_filter_wrapper_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="base_filter_wrapper_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="base_filter_wrapper_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="base_filter_wrapper_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="base_filter_wrapper_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="base_filter_wrapper_postroute_physopt_bb.dcp"/>
+  <File Type="BG-BIT" Name="base_filter_wrapper.bit"/>
+  <File Type="BITSTR-RBT" Name="base_filter_wrapper.rbt"/>
+  <File Type="BITSTR-NKY" Name="base_filter_wrapper.nky"/>
+  <File Type="PDI-FILE" Name="base_filter_wrapper.pdi"/>
+  <File Type="RCFI_FILE" Name="base_filter_wrapper.rcfi"/>
+  <File Type="CFI_FILE" Name="base_filter_wrapper.cfi"/>
+  <File Type="RNPI_FILE" Name="base_filter_wrapper.rnpi"/>
+  <File Type="NPI_FILE" Name="base_filter_wrapper.npi"/>
+  <File Type="RBD_FILE" Name="base_filter_wrapper.rbd"/>
+  <File Type="BITSTR-LTX" Name="base_filter_wrapper.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="base_filter_wrapper.sysdef"/>
+  <File Type="BG-BGN" Name="base_filter_wrapper.bgn"/>
+  <File Type="BG-DRC" Name="base_filter_wrapper.drc"/>
+  <File Type="RDI-RDI" Name="base_filter_wrapper.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/bd/base_filter/base_filter.bd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/PYNQ-image_v2.5.4/boards/Pynq-Z2/base/base_filter/base_filter.srcs/sources_1/bd/base_filter/base_filter.bd"/>
+        <Attr Name="ImportTime" Val="1699577215"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/base_filter/hdl/base_filter_wrapper.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/PYNQ-image_v2.5.4/boards/Pynq-Z2/base/base_filter/base_filter.srcs/sources_1/bd/base_filter/hdl/base_filter_wrapper.v"/>
+        <Attr Name="ImportTime" Val="1699577215"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/mycoefile.coe">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/Gonglingyu/Desktop/mycoefile.coe"/>
+        <Attr Name="ImportTime" Val="1699577102"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="base_filter_wrapper"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/constraints/base_filter.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/PYNQ-image_v2.5.4/boards/Pynq-Z2/base/vivado/constraints/base_filter.xdc"/>
+        <Attr Name="ImportTime" Val="1699576672"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design" EnableStepBool="1"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_s00_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_m06_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_axi_smc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_clk_wiz_10MHz_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_m02_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_audio_codec_ctrl_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_axi_dma_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_btns_gpio_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_outputfifo_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_fir_compiler_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_inputfifo_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_leds_gpio_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_ps7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_axi_smc_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_rst_ps7_0_fclk0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_switches_gpio_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_system_interrupts_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_rgbleds_gpio_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_auto_pc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_m04_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_m05_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_m00_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_m01_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="base_filter_m03_regslice_0"/>
+</GenRun>
