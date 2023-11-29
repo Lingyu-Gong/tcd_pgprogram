@@ -45,7 +45,7 @@ The script outputs waveform visualizations for each stage of the audio processin
 - Restored Audio Using Median Filter
 - Restored Audio Using Cubic Filter
 
-![Audio Restoration Results](path/to/Fig_result.png)
+![Audio Restoration Results](https://github.com/Lingyu-Gong/tcd_pgprogram/blob/main/55c22ComputationalMethod/Assignment2/Fig_result.png)
 
 ### Performance Metrics
 The performance of the median and cubic spline filters is summarized as follows:
