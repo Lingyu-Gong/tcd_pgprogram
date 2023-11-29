@@ -5,7 +5,8 @@ import unittest
 import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
 from tqdm import tqdm
-
+from scipy.interpolate import CubicSpline
+import time
 
 # import data
 ## input window size
@@ -20,9 +21,10 @@ audio_degraded = audio_degraded / 32678
 #----------------------------------Vitualization----------------------------------------#
 ## show input audio
 fig = plt.figure()
-ax1 = fig.add_subplot(3, 1, 1)
-ax2 = fig.add_subplot(3, 1, 2)
-ax3 = fig.add_subplot(3, 1, 3)
+ax1 = fig.add_subplot(4, 1, 1)
+ax2 = fig.add_subplot(4, 1, 2)
+ax3 = fig.add_subplot(4, 1, 3)
+ax4 = fig.add_subplot(4, 1, 4)
 
 ax1.plot(audio_clean)
 ax1.set_title('Clean Audio', fontdict={'size': 10})
@@ -39,13 +41,14 @@ ax2.tick_params(axis='both', labelsize=8)
 
 # check wether is odd or not
 def check_odd_filterlen(window_size):
-    """_summary_
+    """
+    Checks if the provided window size is an odd number.
 
     Args:
-        window_size (_type_): _description_
+        window_size (Iterable or int): The size of the window to be checked.
 
     Raises:
-        ValueError: _description_
+        ValueError: If the window size is not odd, a ValueError is raised with an appropriate error message to indicate that the window size must be odd.
     """
     if(len(window_size)% 2 == 1):
         print("The window length can works, please keep going.")
@@ -102,34 +105,78 @@ def calculate_mse(actual, predicted):
     mse = np.mean((actual - predicted) ** 2)
     return mse
 
-#-------------------------------Eliminate the clicks----------------------------------------#
+def cubic_spline_filter(block, x_points, y_points):
+    """
+    Apply cubic spline filter to a block of audio data.
 
-for i in tqdm(click_pos[0], desc="Processing clicks"):
+    Args:
+        block (np.array): The array of points to be interpolated.
+        x_points (np.array): The x-coordinates of the data points.
+        y_points (np.array): The y-coordinates of the data points.
+
+    Returns:
+        np.array: The interpolated values.
+    """
+    cubic_spline = CubicSpline(x_points, y_points)
+    return cubic_spline(block)
+
+#-------------------------------Eliminate the clicks----------------------------------------#
+median_execution_start = time.time()
+
+for i in tqdm(click_pos[0], desc="Processing clicks with median filter"):
     block_size = int((window_size-1)/ 2)
     block = audio_degraded[i- block_size: i+ block_size+ 1]
     mid_num = calculate_med_num(block, window_size) # get the restored data
     audio_degraded[i] = mid_num
 
+median_execution_end = time.time()
+median_execution_time = median_execution_end - median_execution_start
 
-audio_restored = wav.write("C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Audio.wav", fs, audio_degraded)
+audio_restored_Median = wav.write("C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Median.wav", fs, audio_degraded)
 
-fs, audio_restored = wav.read('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Audio.wav')
-ax3.plot(audio_restored)
-ax3.set_title('Restored Audio', fontdict={'size': 10})
+fs, audio_restored_Median = wav.read('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Median.wav')
+ax3.plot(audio_restored_Median)
+ax3.set_title('Restored Audio Using Median Filter', fontdict={'size': 10})
 ax3.set_xlabel('Time')
 ax3.set_ylabel('Amplitude')
 ax3.tick_params(axis='both', labelsize=8)
 
+
+cubic_execution_start = time.time()
+for i in tqdm(click_pos[0], desc="Processing clicks with cubic splines"):
+    block_size = int((window_size-1)/ 2)
+    block = np.arange(i - block_size, i + block_size + 1)
+    # Assuming you have a function that provides y_points based on the context of your data
+    y_points = audio_degraded[i - block_size: i + block_size + 1]
+    interpolated_values = cubic_spline_filter(block, block, y_points)
+    audio_degraded[i] = interpolated_values[block_size]
+
+cubic_execution_end = time.time()
+cubic_execution_time = cubic_execution_end - cubic_execution_start
+
+audio_restored_cubic = wav.write("C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Cubic.wav", fs, audio_degraded)
+
+fs, audio_restored_cubic = wav.read('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Cubic.wav')
+ax4.plot(audio_restored_cubic)
+ax4.set_title('Restored Audio Using Cubic Filter', fontdict={'size': 10})
+ax4.set_xlabel('Time')
+ax4.set_ylabel('Amplitude')
+ax4.tick_params(axis='both', labelsize=8)
+
 plt.tight_layout()
 plt.show()
 
-
 #---------------------------------------Calculate MSE----------------------------------------#
 
-mse_score = calculate_mse(audio_clean[click_pos[0]], audio_restored[click_pos[0]])            
-print("MSE score: ", mse_score)
+mse_score = calculate_mse(audio_clean[click_pos[0]], audio_restored_Median[click_pos[0]])            
+print("Median Filter MSE score: ", mse_score)
+mse_score = calculate_mse(audio_clean[click_pos[0]], audio_restored_cubic[click_pos[0]])            
+print("Cubic Filter MSE score: ", mse_score)
 
+#--------------------------------Calculate Execution Time------------------------------------#
 
+print("Median Filter Execution Time: ", median_execution_time)
+print("Cubic Spline Fliter Execution Time: ", cubic_execution_time)
 
 class TestAudioProcessing(unittest.TestCase):
 
