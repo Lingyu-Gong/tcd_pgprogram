@@ -1,66 +1,62 @@
 # Audio Restoration Project
 
 ## Overview
-This project focuses on audio restoration using median and cubic spline filtering techniques. The script processes a degraded audio file by eliminating clicks and restoring its quality. It compares the efficiency of median and cubic spline methods in terms of Mean Squared Error (MSE) and execution time.
-<!-- - median filtering
-- cubic splines -->
-
----
+This project applies median and cubic spline filtering techniques for audio restoration. The provided Python script processes a degraded audio file, eliminating noise artifacts and restoring its quality. It assesses the performance of both methods by comparing Mean Squared Error (MSE) and execution time.
 
 ## Installation
 
-To run this script, you need Python installed on your system along with the following libraries:
-- NumPy
+Ensure you have Python installed on your system. Install the required libraries using the following commands:
 
-- SciPy
-
-- Matplotlib
-
-- tqdm
+- NumPy:
 ```sh
-pip install numpy scipy matplotlib tqdm
+pip install numpy
 ```
----
+- SciPy:
+```sh
+pip install scipy
+```
+- Matplotlib:
+```sh
+pip install matplotlib
+```
+- tqdm:
+```sh
+pip install tqdm
+```
+- playsound (if you encounter issues, upgrade `setuptools` and `wheel` before installing):
+```sh
+pip install --upgrade setuptools wheel
+pip install playsound
+```
 ## Usage
-1. **Set Up:** Place your clean and degraded .wav files in the appropriate directory.  
+1. **Setup:** Store your clean and degraded .wav files in the designated directory.
+2. **Execution:** Run `Assignment2_main.py` in your terminal and input the window size for the filters when prompted.
+3. **Output:** The script generates visualizations of the original, degraded, and restored audio. It provides MSE scores and execution times for median and cubic spline filters.
 
-2. **Running the Script:** Execute Assignment2_main.py. You will be prompted to input the window size for the filters.  
-
-3. **Output:** The script will generate visualizations of the clean, degraded, restored (median filter), and restored (cubic spline filter) audio. It also outputs the MSE scores and execution times for both methods.  
-
----
 ## Testing
-The script includes a test suite for the median calculation function. To run the tests, simply execute the script. Ensure you have the unittest module installed.
+The script includes unit tests for the median calculation using the `unittest` framework. Run the script to execute these tests.
 
----
 ## Results
 
-1. The image displays four separate waveforms, each representing different states of an audio file as visualized through a sound editing or analysis software. The waveforms are shown in a vertical sequence with the following labels: Clean Audio, Degraded Audio, Restored Audio Using Median Filter, Restored Audio Using Cubic Filter.
+### Visualizations
+The script outputs waveform visualizations for each stage of the audio processing:
+- Clean Audio
+- Degraded Audio
+- Restored Audio Using Median Filter
+- Restored Audio Using Cubic Filter
 
-![Fig_result](https://github.com/Lingyu-Gong/tcd_pgprogram/blob/main/55c22ComputationalMethod/Assignment2/Fig_result.png)
+![Audio Restoration Results](path/to/Fig_result.png)
 
-2. Data comparison
+### Performance Metrics
+The performance of the median and cubic spline filters is summarized as follows:
 
-Method | MSE score | Execution Time |
----------|-----------|----------------|
-Median Filter| 0.0041 | 0.0070 |
-Cubic Filter| 0.0041 | 0.0100 |
+| Method          | MSE Score | Execution Time |
+|-----------------|-----------|----------------|
+| Median Filter   | 0.0041    | 0.0070 seconds |
+| Cubic Filter    | 0.0041    | 0.0100 seconds |
 
----
+The MSE scores are identical, suggesting comparable accuracy, but the median filter boasts a faster execution time.
+
 ## Contact
+For any questions or further information, please reach out to gongl@tcd.ie.
 
-For any queries, please contact gongl@tcd.ie.
-
-
-
-
-
-
-<!-- For more details check [here](https://github.com/bndr/pipreqs)
-
-
-Afer installing all required packages you can run the demo file simply by typing:
-```sh
-python demo_audio_restoration.py
-```
---- -->

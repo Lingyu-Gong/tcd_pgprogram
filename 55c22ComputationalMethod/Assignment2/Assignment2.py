@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 from scipy.interpolate import CubicSpline
 import time
+from playsound import playsound
 
 # import data
 ## input window size
@@ -146,7 +147,6 @@ cubic_execution_start = time.time()
 for i in tqdm(click_pos[0], desc="Processing clicks with cubic splines"):
     block_size = int((window_size-1)/ 2)
     block = np.arange(i - block_size, i + block_size + 1)
-    # Assuming you have a function that provides y_points based on the context of your data
     y_points = audio_degraded[i - block_size: i + block_size + 1]
     interpolated_values = cubic_spline_filter(block, block, y_points)
     audio_degraded[i] = interpolated_values[block_size]
@@ -177,6 +177,12 @@ print("Cubic Filter MSE score: ", mse_score)
 
 print("Median Filter Execution Time: ", median_execution_time)
 print("Cubic Spline Fliter Execution Time: ", cubic_execution_time)
+
+#-------------------------------------Play the music-----------------------------------------#
+
+playsound('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Median.wav')
+playsound('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Cubic.wav')
+
 
 class TestAudioProcessing(unittest.TestCase):
 
