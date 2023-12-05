@@ -168,20 +168,30 @@ plt.show()
 
 #---------------------------------------Calculate MSE----------------------------------------#
 
-mse_score = calculate_mse(audio_clean[click_pos[0]], audio_restored_Median[click_pos[0]])            
-print("Median Filter MSE score: ", mse_score)
-mse_score = calculate_mse(audio_clean[click_pos[0]], audio_restored_cubic[click_pos[0]])            
-print("Cubic Filter MSE score: ", mse_score)
+mse_score1 = calculate_mse(audio_clean[click_pos[0]], audio_restored_Median[click_pos[0]])            
+print("Median Filter MSE score: ", mse_score1)
+
+mse_score2 = calculate_mse(audio_clean[click_pos[0]], audio_restored_cubic[click_pos[0]])            
+print("Cubic Filter MSE score: ", mse_score2)
 
 #--------------------------------Calculate Execution Time------------------------------------#
 
 print("Median Filter Execution Time: ", median_execution_time)
 print("Cubic Spline Fliter Execution Time: ", cubic_execution_time)
 
+
+# Function to play sound with error handling
+def play_sound(file_path):
+    try:
+        playsound(file_path)
+    except Exception as e:
+        print(f"Error occurred while playing sound: {e}")
+
 #-------------------------------------Play the music-----------------------------------------#
 
-playsound('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Median.wav')
-playsound('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Cubic.wav')
+play_sound('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Median.wav')
+time.sleep(10)
+play_sound('C:/GONG/pgprogram/tcd_pgprogram/55c22ComputationalMethod/Assignment2/Restored_Cubic.wav')
 
 
 class TestAudioProcessing(unittest.TestCase):
