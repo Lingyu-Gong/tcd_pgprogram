@@ -1,1 +1,0 @@
-This folder contains two input audios, and two output audios, where ”new_audio“ is the merged audio that will be heard as an effect in the main program. The main program is the ”demo.m“ file, the others are the function files used.
