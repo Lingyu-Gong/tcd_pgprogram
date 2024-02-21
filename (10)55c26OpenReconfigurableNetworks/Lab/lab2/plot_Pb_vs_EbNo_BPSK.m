@@ -7,7 +7,7 @@ clear all
 close all
 
 %% set range for Eb/No values
-EbN0_dB = 0:0.1:12;
+EbN0_dB = 0:0.1:12; % log scale
 EbN0 = 10.^(EbN0_dB/10);  % convert to linear units
 
 %% compute probability of bit error
